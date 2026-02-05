@@ -1,10 +1,10 @@
-package com.gorski.weather_are_you;
+package com.gorski.weather_are_you_app;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class WeatherAreYouApplicationTests {
+class WeatherAreYouAppApplicationTests {
 
 	@Test
 	void contextLoads() {

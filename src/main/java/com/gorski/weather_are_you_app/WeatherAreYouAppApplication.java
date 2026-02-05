@@ -1,13 +1,13 @@
-package com.gorski.weather_are_you;
+package com.gorski.weather_are_you_app;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class WeatherAreYouApplication {
+public class WeatherAreYouAppApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(WeatherAreYouApplication.class, args);
+		SpringApplication.run(WeatherAreYouAppApplication.class, args);
 	}
 
 }
