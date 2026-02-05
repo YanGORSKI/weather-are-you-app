@@ -1,20 +1,25 @@
 package com.gorski.weather_are_you_app.clients;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestClient;
 
 import com.gorski.weather_are_you_app.properties.GeoNamesProperties;
 import com.gorski.weather_are_you_app.responses.GeoNamesResponse;
 
-import lombok.RequiredArgsConstructor;
-
 @Component
-@RequiredArgsConstructor
 public class GeoNamesClient {
 
+    private final RestClient geoNamesRestClient;
     private final GeoNamesProperties geoNamesProperties;
 
-    private final RestClient geoNamesRestClient;
+    public GeoNamesClient(
+        @Qualifier("geoNamesRestClient") RestClient geoNamesRestClient,
+        GeoNamesProperties geoNamesProperties)
+    {
+        this.geoNamesRestClient = geoNamesRestClient;
+        this.geoNamesProperties = geoNamesProperties;
+    }
 
     public GeoNamesResponse getCoordinatesFromZipCode(String zipCode) {
         return geoNamesRestClient

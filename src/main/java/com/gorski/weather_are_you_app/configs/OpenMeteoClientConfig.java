@@ -4,20 +4,20 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.client.RestClient;
 
-import com.gorski.weather_are_you_app.properties.GeoNamesProperties;
+import com.gorski.weather_are_you_app.properties.OpenMeteoProperties;
 
 import lombok.RequiredArgsConstructor;
 
 @Configuration
 @RequiredArgsConstructor
-public class GeoNamesClientConfig {
+public class OpenMeteoClientConfig {
 
-    private final GeoNamesProperties geoNamesProperties;
+    private final OpenMeteoProperties openMeteoProperties;
 
-    @Bean(name = "geoNamesRestClient")
-    RestClient geoNamesRestClient() {
+    @Bean(name = "openMeteoRestClient")
+    RestClient openMeteoRestClient() {
         return RestClient.builder()
-                .baseUrl(geoNamesProperties.getBaseUrl())
+                .baseUrl(openMeteoProperties.getBaseUrl())
                 .build();
     }
 

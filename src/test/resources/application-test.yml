@@ -1,6 +1,0 @@
-spring:
-    application:
-        name: Weather Are You App
-geonames:
-    base-url: "http://api.geonames.org"
-    username: "weather_are_you_app"

@@ -4,3 +4,5 @@ spring:
 geonames:
     base-url: "http://api.geonames.org"
     username: "weather_are_you_app"
+openmeteo:
+    base-url: "https://api.open-meteo.com/v1/"
