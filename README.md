@@ -76,7 +76,13 @@ Once `Docker` is installed and the terminal is open in the project folder again,
 
 ```bash
 docker compose up --build
+or
+docker-compose up --build
 ```
+> if you get an error message similar to:
+`permission denied while trying to connect to the Docker daemon socket`
+check your folder permissions or try using `sudo` before the command
+
 What this command does:
 
 * **Downloads** the required `Java` image
