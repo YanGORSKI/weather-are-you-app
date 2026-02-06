@@ -26,6 +26,7 @@ class GeoNamesClientTest {
 
     @Test
     void should_return_real_coordinates_when_given_valid_zipcode() {
+        System.out.println("Running GeoNamesClientTest.should_return_real_coordinates_when_given_valid_zipcode");
         // given
         String validZipCode = VALID_ZIPCODE;
 

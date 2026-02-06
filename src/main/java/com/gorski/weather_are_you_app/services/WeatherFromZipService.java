@@ -19,15 +19,10 @@ public class WeatherFromZipService {
     private final WeatherFromZipResponseAssembler assembler;
 
     public WeatherFromZipResponse getWeatherFromZip(WeatherFromZipRequest request) {
-        System.out.println("Processing request for zip code: " + request.getZipCode());
 
         var coordinates = geoNamesService.getCoordinatesFromZipCode(request.getZipCode());
 
-        System.out.println("Using coordinates to retrieve weather information...");
-
         var weatherForecast = openMeteoService.getWeatherForecastFromCoordinates(coordinates);
-
-        System.out.println("Weather Forecast results: " + weatherForecast);
 
         return assembler.assembleResponse(
             request,

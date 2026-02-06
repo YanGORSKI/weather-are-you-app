@@ -22,7 +22,6 @@ public class OpenMeteoService {
         key = "#coord.latitude + '-' + #coord.longitude"
     )
     public OpenMeteoResponse getWeatherForecastFromCoordinates(CoordinatesDTO coord) {
-        System.out.println("Fetching weather forecast for coordinates: " + coord);
         cacheContext.markAsFresh();
         
         return openMeteoClient.getForecastFromCoordinates(coord);

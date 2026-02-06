@@ -26,6 +26,7 @@ class OpenMeteoClientTest {
 
     @Test
     void should_return_successfully_when_given_valid_coordinates() {
+        System.out.println("Running OpenMeteoClientTest.should_return_successfully_when_given_valid_coordinates");
         // given
         var validCoordinates = CoordinatesDTO.builder()
                 .latitude(VALID_LATITUDE)
