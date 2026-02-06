@@ -143,5 +143,5 @@ This will `stop` and `remove` the running `container`.
 > * This only means that `requests` made with the same information may have to be fecthed again, even if inside the Cache window (`24h` for **Coordinates** and `15min` for **Weather Forecast**)
 
 ---
-#### 🛠️ [Development Details](http://linktootherfile)
+#### 🛠️ [Development Details](https://github.com/YanGORSKI/weather-are-you-app/blob/main/Development%20Details.md)
 ---
