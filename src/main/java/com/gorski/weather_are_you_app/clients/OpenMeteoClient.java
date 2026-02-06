@@ -18,6 +18,7 @@ public class OpenMeteoClient {
     }
 
     public OpenMeteoResponse getForecastFromCoordinates(CoordinatesDTO coord) {
+        System.out.println("Making API call to OpenMeteo for coordinates: " + coord);
         return openMeteoRestClient
                 .get()
                 .uri(uriBuilder -> uriBuilder

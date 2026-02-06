@@ -16,12 +16,16 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class WeatherFromZipController {
 
-    //Exception for BadRequest cases when missing zipCode in request
+    // Exception for BadRequest cases when missing zipCode in request
+
     private final WeatherFromZipService service;
 
     @PostMapping("/zip")
     public WeatherFromZipResponse getWeatherFromZipCode(
-            @RequestBody WeatherFromZipRequest request) {
+            @RequestBody WeatherFromZipRequest request) {        
+        
+        System.out.println("-------------------------------------------------------------------------");
+        System.out.println("Received request: " + request);
 
         return service.getWeatherFromZip(request);
     }

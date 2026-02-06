@@ -13,7 +13,12 @@ import com.gorski.weather_are_you_app.responses.WeatherFromZipResponse;
 public class WeatherFromZipResponseAssembler {
     public WeatherFromZipResponse assembleResponse(
             WeatherFromZipRequest request,
-            OpenMeteoResponse weatherForecast) {
+            OpenMeteoResponse weatherForecast,
+            boolean fromCache) {
+
+        System.out.println("Assembling response for request: " + request);
+        System.out.println("with information from OpenMeteoAPI: " + weatherForecast);
+
         var includeAdditionalInfo = request.getAdditionalInfo() != null && request.getAdditionalInfo();
         var extendedForecast = request.getExtendedForecast() != null && request.getExtendedForecast();
 
@@ -56,7 +61,7 @@ public class WeatherFromZipResponseAssembler {
 
         return WeatherFromZipResponse.builder()
                 .weatherForecast(forecastDays)
-                .fromCache(false)
+                .fromCache(fromCache)
                 .build();
     }
 }

@@ -22,6 +22,8 @@ public class GeoNamesClient {
     }
 
     public GeoNamesResponse getCoordinatesFromZipCode(String zipCode) {
+        System.out.println("Making API call to GeoNames for zip code: " + zipCode);
+        
         return geoNamesRestClient
                 .get()
                 .uri(uriBuilder -> uriBuilder

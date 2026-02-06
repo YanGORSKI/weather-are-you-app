@@ -3,6 +3,7 @@ package com.gorski.weather_are_you_app.clients;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -11,6 +12,7 @@ import org.springframework.test.context.ActiveProfiles;
 import com.gorski.weather_are_you_app.responses.GeoNamesResponse;
 import com.gorski.weather_are_you_app.responses.GeoNamesResponse.PostalCode;
 
+@Tag("integration")
 @SpringBootTest
 @ActiveProfiles("test")
 class GeoNamesClientTest {
