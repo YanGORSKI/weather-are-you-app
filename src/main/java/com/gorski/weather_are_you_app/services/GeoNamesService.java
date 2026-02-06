@@ -12,6 +12,10 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class GeoNamesService {
 
+    // Exceptions to invalid zip code or no results
+    // Exceptions handling for client not responding
+    // @Cacheable for zip code
+
     private GeoNamesClient geoNamesClient;
 
     private CoordinatesMapper mapper;
@@ -19,8 +23,8 @@ public class GeoNamesService {
     public CoordinatesDTO getCoordinatesFromZipCode(String zipCode) {
         var response = geoNamesClient.getCoordinatesFromZipCode(zipCode);
 
-        var approximateCoordinates = response.getPostalCodes().stream().findFirst().orElseThrow();
+        var bestResultCoordinates = response.getPostalCodes().stream().findFirst().orElseThrow();
 
-        return mapper.geoNamesCoordinatesToCoordinatesDTO(approximateCoordinates);
+        return mapper.geoNamesCoordinatesToCoordinatesDTO(bestResultCoordinates);
     }
 }
