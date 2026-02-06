@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import com.gorski.weather_are_you_app.clients.GeoNamesClient;
 import com.gorski.weather_are_you_app.dtos.CoordinatesDTO;
+import com.gorski.weather_are_you_app.exceptions.CoordinatesNotFoundException;
 import com.gorski.weather_are_you_app.mappers.CoordinatesMapper;
 
 import lombok.AllArgsConstructor;
@@ -13,20 +14,22 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class GeoNamesService {
 
-    // Exceptions to invalid zip code or no results
-    // Exceptions handling for client not responding
-
     private GeoNamesClient geoNamesClient;
 
     private CoordinatesMapper mapper;
 
     @Cacheable(value = "coordinatesCache", key = "#zipCode")
     public CoordinatesDTO getCoordinatesFromZipCode(String zipCode) {
-        
-        System.out.println("Fetching coordinates from zip code: " + zipCode);
+
         var response = geoNamesClient.getCoordinatesFromZipCode(zipCode);
 
-        var bestResultCoordinates = response.getPostalCodes().stream().findFirst().orElseThrow();
+        var bestResultCoordinates = response.getPostalCodes().stream()
+        .findFirst()
+        .orElseThrow(() ->
+            new CoordinatesNotFoundException(
+                "Coordinates not found for zip code: " + zipCode
+            )
+        );
 
         return mapper.geoNamesCoordinatesToCoordinatesDTO(bestResultCoordinates);
     }

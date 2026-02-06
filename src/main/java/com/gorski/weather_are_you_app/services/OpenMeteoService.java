@@ -12,8 +12,6 @@ import lombok.AllArgsConstructor;
 
 @Service
 @AllArgsConstructor
-// Exception handling for client not responding
-// Exception handling for invalid coordinates or no results
 public class OpenMeteoService {
 
     private OpenMeteoClient openMeteoClient;
